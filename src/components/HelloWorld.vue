@@ -10,7 +10,7 @@ const SIZE = 10 * 1024 * 1024 // 切片的大小
 const URL = 'http://localhost:3000' // 服务端地址
 export default {
   name: 'big-file-upload',
-  data: function() {
+  data() {
     return {
       container: {
         file: null
@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    request({ url, method = 'post', data, headers, requestList }) {
+    request({ url, method = 'post', data, headers }) {
       return new Promise(resovle => {
         const xhr = new XMLHttpRequest()
         xhr.open(method, url)
@@ -82,7 +82,7 @@ export default {
       const fileChunkList = this.createFileChunk(this.container.file)
       this.data = fileChunkList.map(({ file }, index) => ({
         chunk: file,
-        hash: this.container.file.name + '-' + index
+        hash: `${this.container.file.name}-${index}`
       }))
       await this.uploadFileChunks()
     }

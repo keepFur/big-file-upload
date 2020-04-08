@@ -3,7 +3,7 @@
   "env": {
     "node": true
   },
-  "extends": ["plugin:vue/essential", "airbnb-base", "prettier"],
+  "extends": ["airbnb-base", "plugin:vue/essential", "prettier"],
   "plugins": ["prettier"],
   "parserOptions": {
     "parser": "babel-eslint"
